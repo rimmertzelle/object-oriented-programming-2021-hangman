@@ -1,12 +1,9 @@
-function init() {
-    let Game = new Hangman("Jamstack");
-}
 class Hangman {
     constructor(word) {
         this.lettersInDOM = document.querySelector("#letters");
         this.attemptInDOM = document.querySelector("#attempt");
         this.attempts = 5;
-        this.writeAlphabetToTheDom();
+        this.createKeyboardInTheDom();
         this.word = word.split("");
         this.writeAttemptToTheDOM();
     }
@@ -26,7 +23,7 @@ class Hangman {
     }
     winner() { }
     writeWordToTheDOM() { }
-    writeAlphabetToTheDom() {
+    createKeyboardInTheDom() {
         const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
         const keyboard = document.querySelector("#keyboard");
         keyboard.addEventListener("click", this.guessLetter);
@@ -39,5 +36,7 @@ class Hangman {
         });
     }
 }
-window.addEventListener("load", init);
+window.addEventListener("load", function () {
+    let game = new Hangman("Jamstack");
+});
 //# sourceMappingURL=app.js.map
